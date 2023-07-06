@@ -8,7 +8,7 @@ terms_and_conditions: templates/terms_and_conditions.html
 image: logo.jpg
 submission_guidelines: templates/submission_guidelines.html
 leaderboard_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas a libero nec sagittis.
-evaluation_script: evaluation_script.zip
+evaluation_script: evaluation_script/main.py
 remote_evaluation: False
 is_docker_based: False
 start_date: 2019-01-01 00:00:00
@@ -19,8 +19,8 @@ leaderboard:
   - id: 1
     schema:
       {
-        "labels": ["F1", "Accuracy", "Metric3", "Total"],
-        "default_order_by": "Total",
+        "labels": ["F1", "Accuracy"],
+        "default_order_by": "Accuracy",
         "metadata": {
           "Metric1": {
             "sort_ascending": True,
