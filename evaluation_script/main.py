@@ -40,8 +40,8 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         }
     """
     gt = [1,2,3,4,5,6,7,8,8]
-    file_path = kwargs['submission_metadata']['input_file']
-    with open(file_path) as f:
+    
+    with open(user_submission_file) as f:
         for idx, line in enumerate(f):
             if int(line.rstrip()) == gt[idx]:
                 cor+=1
@@ -57,8 +57,6 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
                 "train_split": {
                     "F1": random.randint(0, 99),
                     "Accuracy": acc,
-                    "Metric3": random.randint(0, 99),
-                    "Total": random.randint(0, 99),
                 }
             }
         ]
