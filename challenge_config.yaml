@@ -1,6 +1,6 @@
 # If you are not sure what all these fields mean, please refer our documentation here:
 # https://evalai.readthedocs.io/en/latest/configuration.html
-title: Random Number Generator Challenge
+title: WECIA
 short_description: Random number generation challenge for each submission
 description: templates/description.html
 evaluation_details: templates/evaluation_details.html
@@ -19,7 +19,7 @@ leaderboard:
   - id: 1
     schema:
       {
-        "labels": ["Metric1", "Metric2", "Metric3", "Total"],
+        "labels": ["F1", "Accuracy", "Metric3", "Total"],
         "default_order_by": "Total",
         "metadata": {
           "Metric1": {
