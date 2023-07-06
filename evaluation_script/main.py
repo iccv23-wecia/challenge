@@ -39,6 +39,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
             'submitted_at': u'2017-03-20T19:22:03.880652Z'
         }
     """
+    gt = [1,2,3,4,5,6,7,8,8]
     file_path = kwargs['submission_metadata']['input_file']
     with open(file_path) as f:
         for idx, line in enumerate(f):
