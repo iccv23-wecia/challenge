@@ -39,14 +39,23 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
             'submitted_at': u'2017-03-20T19:22:03.880652Z'
         }
     """
+    file_path = kwargs['submission_metadata']['input_file']
+    with open(file_path) as f:
+        for idx, line in enumerate(f):
+            if int(line.rstrip()) == gt[idx]:
+                cor+=1
+            else:
+                incor+=1
+    acc = float(cor/(cor+incor))
+
     output = {}
     if phase_codename == "dev":
         print("Evaluating for Dev Phase")
         output["result"] = [
             {
                 "train_split": {
-                    "Metric1": random.randint(0, 99),
-                    "Metric2": random.randint(0, 99),
+                    "F1": random.randint(0, 99),
+                    "Accuracy": acc,
                     "Metric3": random.randint(0, 99),
                     "Total": random.randint(0, 99),
                 }
