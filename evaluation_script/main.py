@@ -40,7 +40,8 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         }
     """
     gt = [1,2,3,4,5,6,7,8,8]
-    
+    cor=0
+    incor=0
     with open(user_submission_file) as f:
         for idx, line in enumerate(f):
             if int(line.rstrip()) == gt[idx]:
