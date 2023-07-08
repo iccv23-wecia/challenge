@@ -1,3 +1,22 @@
-{
-	"foo": "bar"
-}
+[
+  {
+    "id": 1,
+    "emotion": "happy"
+  },
+  {
+    "id": 2,
+    "emotion": "sad"
+  },
+  {
+    "id": 3,
+    "emotion": "angry"
+  },
+  {
+    "id": 4,
+    "emotion": "surprised"
+  },
+  {
+    "id": 5,
+    "emotion": "fearful"
+  }
+]
