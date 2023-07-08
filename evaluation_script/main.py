@@ -39,16 +39,28 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
             'submitted_at': u'2017-03-20T19:22:03.880652Z'
         }
     """
-    gt = [1,2,3,4,5,6,7,8,8]
-    cor=0
-    incor=0
-    with open(user_submission_file) as f:
-        for idx, line in enumerate(f):
-            if int(line.rstrip()) == gt[idx]:
-                cor+=1
+    with open(user_submission_file, "r") as test_file_object:
+        test_data = json.load(test_file_object)
+    with open(test_annotation_file, "r") as ground_truth_file_object:
+        ground_truth_data = json.load(ground_truth_file_object)
+    test_dict = {item['id']: item['emotion'] for item in test_data}
+    ground_truth_dict = {item['id']: item['emotion'] for item in ground_truth_data}
+    tp = 0  # True positives
+    fp = 0  # False positives
+    fn = 0  # False negatives
+
+    for id, test_emotion in test_dict.items():
+        ground_truth_emotion = ground_truth_dict.get(id)
+        if ground_truth_emotion is not None:
+            if test_emotion == ground_truth_emotion:
+                tp += 1
             else:
-                incor+=1
-    acc = float(cor/(cor+incor))
+                fp += 1
+        else:
+            fn += 1
+    precision = tp / (tp + fp)
+    recall = tp / (tp + fn)
+    f1 = 2 * (precision * recall) / (precision + recall)
 
     output = {}
     if phase_codename == "dev":
@@ -56,8 +68,8 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         output["result"] = [
             {
                 "train_split": {
-                    "F1": random.randint(0, 99),
-                    "Accuracy": acc,
+                    "F1": f1,
+                    "Accuracy": precision,
                 }
             }
         ]
@@ -69,18 +81,13 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         output["result"] = [
             {
                 "train_split": {
-                    "Metric1": random.randint(0, 99),
-                    "Metric2": random.randint(0, 99),
-                    "Metric3": random.randint(0, 99),
-                    "Total": random.randint(0, 99),
-                }
+                    "F1": random.randint(0, 99),
+                    "Accuracy": random.randint(0, 99),                }
             },
             {
                 "test_split": {
-                    "Metric1": random.randint(0, 99),
-                    "Metric2": random.randint(0, 99),
-                    "Metric3": random.randint(0, 99),
-                    "Total": random.randint(0, 99),
+                    "F1": f1,
+                    "Accuracy": precision,
                 }
             },
         ]
