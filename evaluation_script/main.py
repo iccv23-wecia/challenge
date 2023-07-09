@@ -58,6 +58,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
                 fp += 1
         else:
             fn += 1
+    print('TP: ',tp, fp, fn)
     precision = tp / (tp + fp)
     recall = tp / (tp + fn)
     f1 = 2 * (precision * recall) / (precision + recall)
