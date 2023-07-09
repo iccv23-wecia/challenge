@@ -1,6 +1,6 @@
 import random
 import json
-import sklearn
+
 
 
 def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwargs):
