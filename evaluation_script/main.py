@@ -1,6 +1,6 @@
 import random
 import json
-# import evaluate as hfeval
+import evaluate as hfeval
 
 
 
@@ -52,15 +52,15 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
     fp = 0  # False positives
     fn = 0  # False negatives
 
-    # accuracy = hfeval.load("accuracy")
-    # test_emo = []
-    # ground_truth_emo = []
-    # for id, test_emotion in test_dict.items():
-    #     ground_truth_emotion = ground_truth_dict.get(id)
-    #     if ground_truth_emotion is not None:
-    #         test_emo.append(test_emotion)
-    #         ground_truth_emo.append(ground_truth_emotion)
-    # acc = accuracy.compute(references=ground_truth_emo, predictions=test_emo)
+    accuracy = hfeval.load("accuracy")
+    test_emo = []
+    ground_truth_emo = []
+    for id, test_emotion in test_dict.items():
+        ground_truth_emotion = ground_truth_dict.get(id)
+        if ground_truth_emotion is not None:
+            test_emo.append(test_emotion)
+            ground_truth_emo.append(ground_truth_emotion)
+    acc = accuracy.compute(references=ground_truth_emo, predictions=test_emo)
 
     for id, test_emotion in test_dict.items():
         ground_truth_emotion = ground_truth_dict.get(id)
@@ -75,7 +75,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
     precision = tp / (tp + fp)
     recall = tp / (tp + fn)
     f1 = 2 * (precision * recall) / (precision + recall)
-    acc = precision
+    # acc = precision
     # print(precision, recall, f1, acc)
 
     output = {}
