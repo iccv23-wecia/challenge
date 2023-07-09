@@ -64,19 +64,19 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
             ground_truth_emo.append(emo2idx[ground_truth_emotion])
     acc = accuracy.compute(references=ground_truth_emo, predictions=test_emo)
 
-    for id, test_emotion in test_dict.items():
-        ground_truth_emotion = ground_truth_dict.get(id)
-        if ground_truth_emotion is not None:
-            if test_emotion == ground_truth_emotion:
-                tp += 1
-            else:
-                fp += 1
-        else:
-            fn += 1
+    # for id, test_emotion in test_dict.items():
+    #     ground_truth_emotion = ground_truth_dict.get(id)
+    #     if ground_truth_emotion is not None:
+    #         if test_emotion == ground_truth_emotion:
+    #             tp += 1
+    #         else:
+    #             fp += 1
+    #     else:
+    #         fn += 1
     
-    precision = tp / (tp + fp)
-    recall = tp / (tp + fn)
-    f1 = 2 * (precision * recall) / (precision + recall)
+    # precision = tp / (tp + fp)
+    # recall = tp / (tp + fn)
+    # f1 = 2 * (precision * recall) / (precision + recall)
     # acc = precision
     # print(precision, recall, f1, acc)
 
@@ -86,7 +86,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         output["result"] = [
             {
                 "train_split": {
-                    "F1": f1,
+                    "F1": acc,
                     "Accuracy": acc,
                 }
             }
@@ -104,7 +104,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
             # },
             {
                 "test_split": {
-                    "F1": f1,
+                    "F1": acc,
                     "Accuracy": acc,
                 }
             },
