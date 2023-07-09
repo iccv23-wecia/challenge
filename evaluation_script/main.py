@@ -63,7 +63,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
     recall = tp / (tp + fn)
     f1 = 2 * (precision * recall) / (precision + recall)
     acc = precision
-    print(precision, recall, f1, acc)
+    # print(precision, recall, f1, acc)
 
     output = {}
     if phase_codename == "dev":
