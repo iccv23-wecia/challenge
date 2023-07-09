@@ -58,11 +58,12 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
                 fp += 1
         else:
             fn += 1
-    print('TP: ',tp, fp, fn)
+    
     precision = tp / (tp + fp)
     recall = tp / (tp + fn)
     f1 = 2 * (precision * recall) / (precision + recall)
     acc = precision
+    print(precision, recall, f1, acc)
 
     output = {}
     if phase_codename == "dev":
@@ -81,11 +82,11 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
     elif phase_codename == "test":
         print("Evaluating for Test Phase")
         output["result"] = [
-            {
-                "train_split": {
-                    "F1": random.randint(0, 99),
-                    "Accuracy": random.randint(0, 99),                }
-            },
+            # {
+            #     "train_split": {
+            #         "F1": f1,
+            #         "Accuracy": acc,                }
+            # },
             {
                 "test_split": {
                     "F1": f1,
