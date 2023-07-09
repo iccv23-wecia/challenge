@@ -43,8 +43,8 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         test_data = json.load(test_file_object)
     with open(test_annotation_file, "r") as ground_truth_file_object:
         ground_truth_data = json.load(ground_truth_file_object)
-    test_dict = {item['id']: item['emotion'] for item in test_data}
-    ground_truth_dict = {item['id']: item['emotion'] for item in ground_truth_data}
+    test_dict = {item: test_data[item] for item in test_data}
+    ground_truth_dict = {item: ground_truth_data[item] for item in ground_truth_data}
     tp = 0  # True positives
     fp = 0  # False positives
     fn = 0  # False negatives
@@ -61,6 +61,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
     precision = tp / (tp + fp)
     recall = tp / (tp + fn)
     f1 = 2 * (precision * recall) / (precision + recall)
+    acc = precision
 
     output = {}
     if phase_codename == "dev":
@@ -69,7 +70,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
             {
                 "train_split": {
                     "F1": f1,
-                    "Accuracy": precision,
+                    "Accuracy": acc,
                 }
             }
         ]
@@ -87,7 +88,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
             {
                 "test_split": {
                     "F1": f1,
-                    "Accuracy": precision,
+                    "Accuracy": acc,
                 }
             },
         ]
