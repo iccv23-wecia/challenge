@@ -1,10 +1,37 @@
+
 <p>Welcome to the 2023 WECIA Emotion Prediction Competition!</p>
 
-<p>In this competition, you will use visual and textual data to predict the emotion elicited by the image. The winning team .....</p>
+<p>We will supply each team with approximately XXX images and their corresponding captions. 
+    Teams will then use these data to build computational models to predict emotions for these images. 
+    Whether you are working alone or as a team, we welcome researchers, 
+    and anyone interested in computational models for emotional analysis to participate 
+    and submit their results.</p>
+
+<h3>Important Dates</h3>
+<ul>
+    <li>The Challenge launches: July XX, 2023</li>
+    <li>Test Phase begins: July XX, 2023, 12:00 AM (AST)</li>
+    <l1>Challenge Phase begins (hidden test set released): August XX, 2023, 12:00 AM (AST)</l1>
+    <li>Challenge Phase ends: August XX, 2023, 23:59 PM (CST)</li>
+    <l1>Challenge result notification: September XX, 2023</l1>
+    <li>Workshop date: TBA</li>
+</ul>
+<p><b>Note: All time are in Arabian Time Zone (AST) time, which is X hours behind Coordinated Universal Time (UTC).</b></p>
+
+<h3>Prizes and Judging Criteria</h3>
+
+<!-- <p> In this challenge, we will select two winners: <b> Emotion Prediction Winner </b> and <b>Caption Generation Winner</b></p> -->
+<ul>
+    <li>Emotion Prediction Winner: The Winner will be determined by the highest f1 score across the entire test set.</li>
+    <!-- <li>Caption Generation Winner: The Winner will be determined by the highest XXX score across the entire test set.</li> -->
+    <li>The winning team will be invited for a short oral presentation in the workshop.</li>    
+    <li>The winning team will receive a cash prize of XXX USD, which will be distributed as checks. </li>
+    <li> Members of the organising team can not be the winners.</li>
+</ul>
 
 <h3>Competition Site Participation</h3>
 
-
+<p>This year, the challenge will be hosted in the !st Workshop  at ICCV 2023 (October 2-3, Paris, France).</p>
 <p>To participate in this competition, please follow these steps in sequence:</p>
 
 <ul>
@@ -18,9 +45,36 @@
     </ul>
 </ul>
 
+
+<h3>Submission Format</h3>
+<p>To submit to a phase, teams must upload a JSON file containing their model's answer prediction in the following format:</p>
+
+<pre>
+    <code>
+      [
+        {
+          "image_id": int,
+          "emotion": "PREDICTED EMOTION"
+        },
+        {
+          "image_id": int,
+          "emotion": "PREDICTED EMOTION"
+        }
+        ...
+      ]
+    </code>
+  </pre>
+  
+<p><b>image_id:</b>an image's unique id</p>
+<p><b>emotion:</b>the predicted emotion for the image. </p>
+<p>Here is an example submission file.</p>     
+<b>The submission file must include every image_id corresponding to the test set, and the format must also be correct. We will reject those unqualified files.</b>
+
 <h3>Data</h3>
 
 <p>The predictions are text responses to visual and textual data, the responses correspond to different emotions.</p>
 <p>Set of emotions: ........</p>
 <p>Both train split and test split are available here along with test set annotations.</p>
 
+<b>Participants should not use any external data for training purposed other than the data provided by us.
+    Teams found doing so will be disqualified from the challenge. However, you are free to utilize large pre-trained systems. </b>
