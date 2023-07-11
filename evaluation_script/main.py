@@ -57,12 +57,21 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
     ground_truth_emo = []
     emotions = set(test_dict.values()) | set(ground_truth_dict.values())
     emo2idx = {emo: idx for idx, emo in enumerate(emotions)}
-    for id, test_emotion in test_dict.items():
-        ground_truth_emotion = ground_truth_dict.get(id)
-        if ground_truth_emotion is not None:
+
+    for id, ground_truth_emotion in ground_truth_dict.items():
+        if id in test_dict:
+            test_emotion = test_dict.get(id)
             test_emo.append(emo2idx[test_emotion])
-            ground_truth_emo.append(emo2idx[ground_truth_emotion])
+        else:
+            test_emo.append(-1)
+        ground_truth_emo.append(emo2idx[ground_truth_emotion])
     acc = accuracy.compute(references=ground_truth_emo, predictions=test_emo)
+    # for id, test_emotion in test_dict.items():
+    #     ground_truth_emotion = ground_truth_dict.get(id)
+    #     if ground_truth_emotion is not None:
+    #         test_emo.append(emo2idx[test_emotion])
+    #         ground_truth_emo.append(emo2idx[ground_truth_emotion])
+    # acc = accuracy.compute(references=ground_truth_emo, predictions=test_emo)
 
     # for id, test_emotion in test_dict.items():
     #     ground_truth_emotion = ground_truth_dict.get(id)
