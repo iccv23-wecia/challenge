@@ -22,11 +22,11 @@ leaderboard:
         "labels": ["F1", "Accuracy"],
         "default_order_by": "Accuracy",
         "metadata": {
-          "Metric1": {
+          "F1": {
             "sort_ascending": True,
             "description": "F1 score",
           },
-          "Metric2": {
+          "Accuracy": {
             "sort_ascending": True,
             "description": "Accuracy Score",
           }
