@@ -94,7 +94,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         print("Evaluating for Dev Phase")
         output["result"] = [
             {
-                "test_split": {
+                "train_split": {
                     "F1": acc,
                     "Accuracy": acc,
                 }
