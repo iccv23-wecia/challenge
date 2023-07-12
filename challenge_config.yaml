@@ -40,8 +40,8 @@ challenge_phases:
     leaderboard_public: False
     is_public: True
     is_submission_public: True
-    start_date: 2019-01-19 00:00:00
-    end_date: 2099-04-25 23:59:59
+    start_date: 2023-07-12 00:00:00
+    end_date: 2023-09-15 23:59:59
     test_annotation_file: annotations/test_annotations_devsplit.json
     codename: dev
     max_submissions_per_day: 5
@@ -75,15 +75,15 @@ challenge_phases:
         required: True
     is_restricted_to_select_one_submission: False
     is_partial_submission_evaluation_enabled: False
-    allowed_submission_file_types: ".json, .zip, .txt, .tsv, .gz, .csv, .h5, .npy, .npz"
+    allowed_submission_file_types: ".json"
   - id: 2
     name: Test Phase
     description: templates/challenge_phase_2_description.html
     leaderboard_public: True
     is_public: True
     is_submission_public: True
-    start_date: 2019-01-01 00:00:00
-    end_date: 2099-05-24 23:59:59
+    start_date: 2023-09-10 00:00:00
+    end_date: 2023-09-15 23:59:59
     test_annotation_file: annotations/test_annotations_testsplit.json
     codename: test
     max_submissions_per_day: 5
