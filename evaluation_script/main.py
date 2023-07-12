@@ -98,12 +98,12 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
                     "F1": acc,
                     "Accuracy": acc,
                 }
-            },
-            {
-                "dev_split": {
-                    "F1": acc,
-                    "Accuracy": acc,
-                }
+            # },
+            # {
+            #     "dev_split": {
+            #         "F1": acc,
+            #         "Accuracy": acc,
+            #     }
             }
         ]
         # To display the results in the result file
