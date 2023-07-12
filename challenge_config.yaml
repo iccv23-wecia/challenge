@@ -20,7 +20,7 @@ leaderboard:
     schema:
       {
         "labels": ["F1", "Accuracy"],
-        "default_order_by": "Accuracy",
+        "default_order_by": "F1",
         "metadata": {
           "F1": {
             "sort_ascending": True,
@@ -134,7 +134,7 @@ challenge_phase_splits:
   - challenge_phase_id: 2
     leaderboard_id: 1
     dataset_split_id: 1
-    visibility: 1
+    visibility: 2
     leaderboard_decimal_precision: 2
     is_leaderboard_order_descending: True
   - challenge_phase_id: 2
