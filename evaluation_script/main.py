@@ -6,6 +6,7 @@ import evaluate as hfeval
 
 def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwargs):
     print("Starting Evaluation.....")
+    print(phase_codename,'phase_codename')
     """
     Evaluates the submission for a particular challenge phase and returns score
     Arguments:
@@ -105,6 +106,13 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
                     "Accuracy": acc,
                 }
             },
+                        {
+                "dev_split": {
+                    "F1": acc,
+                    "Accuracy": acc,
+                }
+            },
+
         ]
         # To display the results in the result file
         output["submission_result"] = output["result"][1]["test_split"]
