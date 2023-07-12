@@ -1,18 +1,18 @@
 # If you are not sure what all these fields mean, please refer our documentation here:
 # https://evalai.readthedocs.io/en/latest/configuration.html
-title: WECIA
-short_description: Random number generation challenge for each submission
+title: WECIA - Emotion Prediction
+short_description: Emotion Prediction Challenge
 description: templates/description.html
 evaluation_details: templates/evaluation_details.html
 terms_and_conditions: templates/terms_and_conditions.html
 image: logo.jpg
 submission_guidelines: templates/submission_guidelines.html
-leaderboard_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas a libero nec sagittis.
+leaderboard_description: Based on F1 score.
 evaluation_script: evaluation_script.zip
 remote_evaluation: False
 is_docker_based: False
-start_date: 2019-01-01 00:00:00
-end_date: 2099-05-31 23:59:59
+start_date: 2023-07-12 00:00:00
+end_date: 2023-09-15 23:59:59
 published: True
 
 leaderboard:
@@ -24,11 +24,11 @@ leaderboard:
         "metadata": {
           "Metric1": {
             "sort_ascending": True,
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "description": "F1 score",
           },
           "Metric2": {
             "sort_ascending": True,
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "description": "Accuracy Score",
           }
         }
       }
@@ -57,22 +57,22 @@ challenge_phases:
       - name: publication_url
         is_visible: True
     submission_meta_attributes:
-      - name: TextAttribute
-        description: Sample
-        type: text
-        required: False
-      - name: SingleOptionAttribute
-        description: Sample
-        type: radio
-        options: ["A", "B", "C"]
-      - name: MultipleChoiceAttribute
-        description: Sample
-        type: checkbox
-        options: ["alpha", "beta", "gamma"]
-      - name: TrueFalseField
-        description: Sample
-        type: boolean
-        required: True
+      # - name: TextAttribute
+        # description: Sample
+        # type: text
+        # required: False
+      # - name: SingleOptionAttribute
+        # description: Sample
+        # type: radio
+        # options: ["A", "B", "C"]
+      # - name: MultipleChoiceAttribute
+        # description: Sample
+        # type: checkbox
+        # options: ["alpha", "beta", "gamma"]
+      # - name: TrueFalseField
+        # description: Sample
+        # type: boolean
+        # required: True
     is_restricted_to_select_one_submission: False
     is_partial_submission_evaluation_enabled: False
     allowed_submission_file_types: ".json"
@@ -99,20 +99,20 @@ challenge_phases:
       - name: publication_url
         is_visible: True
     submission_meta_attributes:
-      - name: TextAttribute
-        description: Sample
-        type: text
-      - name: SingleOptionAttribute
-        description: Sample
-        type: radio
-        options: ["A", "B", "C"]
-      - name: MultipleChoiceAttribute
-        description: Sample
-        type: checkbox
-        options: ["alpha", "beta", "gamma"]
-      - name: TrueFalseField
-        description: Sample
-        type: boolean
+      # - name: TextAttribute
+        # description: Sample
+        # type: text
+      # - name: SingleOptionAttribute
+        # description: Sample
+        # type: radio
+        # options: ["A", "B", "C"]
+      # - name: MultipleChoiceAttribute
+        # description: Sample
+        # type: checkbox
+        # options: ["alpha", "beta", "gamma"]
+      # - name: TrueFalseField
+        # description: Sample
+        # type: boolean
     is_restricted_to_select_one_submission: False
     is_partial_submission_evaluation_enabled: False
 
