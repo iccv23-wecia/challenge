@@ -119,6 +119,7 @@ def evaluate(test_annotation_file, user_submission_file, phase_codename, **kwarg
         print("Completed evaluation for Dev Phase")
     elif phase_codename == "test":
         print("Evaluating for Test Phase")
+        print("acc: ",acc)
         output["result"] = [
             {
                 "train_split": {
